@@ -1,3 +1,5 @@
+# Creates a new game instance.
+
 class Game:
     def __init__(self, id):
         self.p1Went = False
@@ -15,6 +17,7 @@ class Game:
         """
         return self.moves[p]
 
+# Takes in the player and the move, sets the p1Went and p2Went properties accordingly
     def play(self, player, move):
         self.moves[player] = move
         if player == 0:
@@ -28,6 +31,7 @@ class Game:
     def bothWent(self):
         return self.p1Went and self.p2Went
 
+# Determining the winner
     def winner(self):
         p1 = self.moves[0].upper()[0]
         p2 = self.moves[1].upper()[0]

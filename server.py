@@ -1,7 +1,7 @@
 import socket
 from _thread import *
 import sys
-from player import Player
+from snake.player import Player
 import pickle
 from game import Game
 
@@ -26,7 +26,10 @@ def threaded_client(conn, p, gameId):
 
     global idCount
     conn.send(str.encode(str(p)))
-
+# Threaded client is always trying to recieve data. If the game has already
+# been made and there is another player waiting, then the second player joins that game
+# If no data is recieved, you break out of the loop. If the data is not 'get', then a move is being made
+# and the game.play function is run.
     reply = ""
     while True:
         try:
@@ -43,6 +46,7 @@ def threaded_client(conn, p, gameId):
                     elif data != "get":
                         game.play(p, data)
                     reply = game
+                    print(reply)
                     conn.sendall(pickle.dumps(reply))
             else:
                 break
@@ -57,7 +61,10 @@ def threaded_client(conn, p, gameId):
     idCount -= 1
     conn.close()
 
-
+# Accepts the connection.
+# calculates if there is an even number of players. If so, then you are 
+# the second player to join the game, you are player 2 (1), and the game.ready is turned to true.
+# else you are the first player and a new game instance has to be created.
 while True:
     conn, addr = s.accept()
     print("connected to: ", addr)
