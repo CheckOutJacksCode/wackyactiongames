@@ -1,0 +1,29 @@
+# Pygames Rock, Paper, Scissors
+
+Includes a python pygames version of rock, paper, scissors that interacts with the mouse. Creates a network connection,
+able to run two separate clients on pycharm, and two players can play against each other on the same network.
+
+## Requires:
+ -Python 3.6.1
+ -Pygame 2.0.1
+
+## Installation
+Once Python 3.6.1 is installed onto your system, navigate to the directory where you want to install the game, then clone the repository with git clone https://github.com/CheckOutJacksCode/wack (if you don't have git, you can download the repository as a .zip). Then go into the folder (cd Minesweeper) and create virtual environment (venv) with python3 or python -m venv venv.
+
+Activate the venv with source venv/bin/activate on MacOS or venv\Scripts\activate.bat on Windows. Install Pygame in the venv with pip install pygame.
+
+Running
+Whilst in the venv, run the command python3 ('python' works for me) main.py.
+
+## Command-line Minesweeper
+
+Just navigate inside of the 'command-line minesweeper' folder inside the main directory, and start the game from the command line with the command "python 'Final Minesweeper.py',
+follow the prompts in the command line to set the grid size and number of bombs.
+
+## Resources
+- Python Pygame Multiplayer Game Tutorial, https://www.youtube.com/watch?v=McoDjOCb2Zo
+- Pygame docs, https://www.pygame.org/docs/
+
+## Options for extension
+- Keep track of users and win tallies
+- Add a timer on the front end
